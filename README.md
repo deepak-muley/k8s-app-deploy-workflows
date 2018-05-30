@@ -2,20 +2,16 @@ Steps:
 
 ```bash
 pushd app-build
-
 ./build.sh
-
-popd```
-
-
-pushd app-test
-
-./run.sh
-
-curl http://127.0.0.1:5000/
-
 popd
+```
 
+```bash
+pushd app-test
+./run.sh
+curl http://127.0.0.1:5000/
+popd
+```
 
 
 pushd aws-ecr/3.app-publish-aws-ecr
