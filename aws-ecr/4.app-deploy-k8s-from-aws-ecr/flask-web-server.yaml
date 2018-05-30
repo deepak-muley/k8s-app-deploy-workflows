@@ -1,0 +1,27 @@
+apiVersion: v1
+kind: Pod                                            
+metadata:
+  name: flask-web-server
+  labels:
+    app: flask-web-server                     
+spec:                                                
+  containers:
+    - image: <add aws ac no>.dkr.ecr.<add region>.amazonaws.com/flask-web-server
+      name: flask-web-server
+      ports:
+        - containerPort: 5000    
+  imagePullSecrets:
+  - name: ecr-registry-key
+---
+kind: Service
+apiVersion: v1
+metadata:
+  name: flask-web-server-svc
+spec:
+  selector:
+    app: flask-web-server
+  ports:
+  - protocol: TCP
+    name: flask-web-server
+    port: 5000
+    targetPort: 5000
