@@ -1,11 +1,11 @@
 Steps:
 
-
+```bash
 pushd app-build
 
 ./build.sh
 
-popd
+popd```
 
 
 pushd app-test
